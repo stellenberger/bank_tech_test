@@ -1,8 +1,8 @@
 class Account
 STARTING_BALANCE = 0
-  def initialize(name, amount = STARTING_BALANCE)
+  def initialize(name)
     @name = name
-    @balance = amount
+    @balance = STARTING_BALANCE
   end
 
   def transaction(type, amount)
