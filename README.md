@@ -2,6 +2,33 @@
 
 This is the tech test for Makers Academy Week 10. 
 
+## User Stories
+
+```
+As a hard working citizen
+So I can keep my hard earned cash safe
+I would like to make deposits at the bank
+```
+
+```
+As a hard working citizen
+So I can spend my hard earned cash as a consumer
+I would like to make withdrawals at the bank
+```
+
+```
+As a hard working citizen
+So I can check how much money I have
+I would like to request my current bank statement
+```
+
+```
+As a hard working citizen
+So I can work out my monthly spendings
+I would like my bank statement to include the date of each transaction
+```
+
+
 ## Specification
 
 ### Requirements
