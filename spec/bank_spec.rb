@@ -21,6 +21,5 @@ describe Bank do
     account = Account.new("Stephan")
     expect(subject.withdraw(account, 200)).to eq "You have withdrawn £200"
   end
-
   
 end
