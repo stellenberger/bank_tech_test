@@ -6,7 +6,16 @@ STARTING_BALANCE = 0
   end
 
   def transaction(type, amount)
-    @balance += amount
-    "You have deposited £#{amount}"
+    if type == :deposit
+      @balance += amount
+      "You have deposited £#{amount}"
+    elsif type == :withdraw
+      @balance -= amount
+      "You have withdrawn £#{amount}"
+    else
+      "I dont recognise that action"
+    end
   end
+
+  
 end

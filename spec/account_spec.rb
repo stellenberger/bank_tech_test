@@ -5,5 +5,4 @@ describe Account do
     expect(Account.new("Stephan")).to be_an Account
   end
 
-
 end

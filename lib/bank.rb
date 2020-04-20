@@ -14,6 +14,10 @@ class Bank
   end
 
   def deposit(acc, amount)
-    acc.transaction(:deposit, amount)
+      acc.transaction(:deposit, amount)
+  end
+
+  def withdraw(acc, amount)
+    acc.transaction(:withdraw, amount)
   end
 end
