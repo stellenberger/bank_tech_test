@@ -6,6 +6,12 @@ This is the tech test for Makers Academy Week 10.
 
 ```
 As a hard working citizen
+So I can store my money somewhere
+I would like to make an account at the bank
+```
+
+```
+As a hard working citizen
 So I can keep my hard earned cash safe
 I would like to make deposits at the bank
 ```
