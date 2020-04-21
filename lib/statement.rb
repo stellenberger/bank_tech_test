@@ -5,10 +5,10 @@ class Statement
   end
 
   def produce
+    statement = "date || credit || debit || balance\n"
     if @transactions.empty?
-      "date || credit || debit || balance\n"
+      statement
     else
-      statement = "date || credit || debit || balance\n"
       @transactions.each do |transaction|
         if transaction.type == :deposit
           statement += transaction.date + " || " + transaction.amount + " || || " + transaction.balance_after_transaction + "\n"
