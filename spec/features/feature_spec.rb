@@ -27,6 +27,7 @@ describe 'User Stories,' do
   # So I can spend my hard earned cash as a consumer
   # I would like to make withdrawals at the bank
   it 'can make withdrawals at the bank' do
+    @bank.deposit(@account, 100)
     expect(@bank.withdraw(@account, 100)).to eq "You have withdrawn £100"
   end
 

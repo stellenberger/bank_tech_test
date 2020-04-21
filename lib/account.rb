@@ -29,6 +29,9 @@ class Account
   end
 
   def withdraw(amount)
+    if @balance < amount
+      raise "You don't have enough credit in your account to make this transaction"
+    end
     @transactions << Transaction.new(:withdraw, amount)
     @balance -= amount
     "You have withdrawn £#{amount}"

@@ -13,12 +13,13 @@ describe Bank do
   end
 
   it 'can deposit money into an account' do
-    account = Account.new("Stephan")
+    account = subject.create_account("Stephan")
     expect(subject.deposit(account, 200)).to eq "You have deposited £200"
   end
 
   it 'can withdraw money from my account' do
-    account = Account.new("Stephan")
+    account = subject.create_account("Stephan")
+    subject.deposit(account, 200)
     expect(subject.withdraw(account, 200)).to eq "You have withdrawn £200"
   end
   
