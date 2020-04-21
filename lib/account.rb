@@ -12,17 +12,25 @@ class Account
 
   def transaction(type, amount)
     if type == :deposit
-      transaction = Transaction.new(type, amount)
-      @transactions << transaction
-      @balance += amount
-      "You have deposited £#{amount}"
+      deposit(amount)
     elsif type == :withdraw
-      @balance -= amount
-      "You have withdrawn £#{amount}"
+      withdraw(amount)
     else
-      "I dont recognise that action"
+      raise "I dont recognise that action"
     end
   end
 
+  private
 
+  def deposit(amount)
+    @transactions << Transaction.new(:deposit, amount)
+    @balance += amount
+    "You have deposited £#{amount}"
+  end
+
+  def withdraw(amount)
+    @transactions << Transaction.new(:withdraw, amount)
+    @balance -= amount
+    "You have withdrawn £#{amount}"
+  end
 end

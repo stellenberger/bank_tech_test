@@ -16,11 +16,19 @@ describe Account do
     expect(account.transactions.length).to eq 1
   end
 
-  it 'can access attributes of each transaction including amount, type and the timestamp' do
+  it 'can access attributes of each transaction including amount, type and the timestamp. Testing deposit' do
     account = Account.new("Stephan")
     account.transaction(:deposit, 100)
     expect(account.transactions.length).to eq 1
     expect(account.transactions.last.amount).to eq 100
     expect(account.transactions.last.type).to eq :deposit
+  end
+
+  it 'can access attributes of each transaction including amount, type and the timestamp. Testing withdraw' do
+    account = Account.new("Stephan")
+    account.transaction(:withdraw, 100)
+    expect(account.transactions.length).to eq 1
+    expect(account.transactions.last.amount).to eq 100
+    expect(account.transactions.last.type).to eq :withdraw
   end
 end
