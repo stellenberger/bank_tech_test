@@ -39,4 +39,13 @@ describe Account do
     expect(account.transactions.last.type).to eq :withdraw
     expect(account.transactions.last.timestamp).to be_a Time
   end
+
+  it 'can print a statement' do
+    account = Account.new("Stephan")
+    account.transaction(:deposit, 100)
+    allow(account.transactions.last).to receive(:date).and_return("14/01/2012") 
+    account.transaction(:withdraw, 100)
+    allow(account.transactions.last).to receive(:date).and_return("15/01/2012") 
+    expect(account.print_statement).to eq "date || credit || debit || balance\n14/01/2012 || 100.00 || || 100.00\n15/01/2012 || || 100.00 || 0.00\n" 
+  end
 end
