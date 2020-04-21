@@ -33,6 +33,11 @@ describe Bank do
       subject.deposit(account, 200)
       expect(subject.withdraw(account, 200)).to eq 'You have withdrawn £200'
     end
+
+    it 'will throw an error if the User Account does not exist on the banks system' do
+      account = Account.new("Stephan")
+      expect{ subject.deposit(account, 200) }.to raise_error "We do not recognise this account"
+    end
   end
 
   context '#statements' do

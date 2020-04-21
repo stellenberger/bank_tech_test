@@ -2,6 +2,28 @@
 
 This is the tech test for Makers Academy Week 10. 
 
+I approached this Tech Test by breaking down the objects that will ultimately be involved, before assigning methods to each of them.
+I have created a class for each object, in order of dependency, starting with the highest first. 
+The order is:
+- Bank, 
+- Account, 
+- Transaction and 
+- Statement. 
+
+I decided from the get-go that the Bank class will be able to control the whole application, and through the Bank class you would have control of creating Accounts, Transactions and Statements. There is no need to require any file in the console than the Bank.rb
+
+I began writing tests for the Bank class first. I came to the conclusion that the User should create their own account, but through the Bank class. This allows multiple accounts to be made, and to be stored in the Bank. 
+
+The heart of the program with the most logic was the Account class, and thus needed the most work. The default balance of every account is zero, and cannot be created with another value. All of the accounts logic started in the Transaction method, but to follow the SRP I redacted the logic into private methods, which all get called from the Transaction method. The private methods ensure that there will always be records kept of transactions, and money cannot be withdrawn or deposited without a record. All transactions are kept in an array, which can be read through an attribute reader.
+
+The Transaction class has no responsibility other than storing records of transactions, and thus should not be munipulated in any way. This is why it only has an initialize method, with access to its attributes using an attribute reader. As testing with Time can be unpredictable, I have mocked all attributes that relate to Time and DateTime in my tests.
+
+The Statement class has the sole responsibility of printing out the transactions up to the time that the User requests it, and is the only class that will print anything to the console. This class has one argument on instantiation, which is the array of transaction objects stored in the Account class, has one method that uses string concatenation to produce a table of all the information that has been collected, and prints it out to the console. You can produce this statement from the Bank class with the method request_statement, which will then call the print_statement in the Account class. 
+
+*Further functionality*
+
+Further to the specification, I have ensured that accounts can not go into negative balance, cannot have any other types of transactions besides withdraw or deposit, and banks will not deposit or withdraw money into any accounts that it does not have on its system. The program will throw an error otherwise. 
+
 ## User Stories
 
 ```
@@ -41,6 +63,12 @@ I would like my bank statement to include the date of each transaction
 $ bundle install
 ```
 
+- To run the tests, run rspec in the folder of the repository
+
+```
+$ rspec
+```
+
 - Start the interactive ruby terminal
 
 ```
@@ -53,9 +81,9 @@ $ irb
 2.6.3 :001 > require './lib/bank.rb'
  => true 
 2.6.3 :002 > bank = Bank.new
- => #<Bank:0x00007f85d10df670 @accounts=[]> 
+ => #<Bank:0x00000f85d10df670 @accounts=[]> 
 2.6.3 :003 > account = bank.create_account("Stephan")
- => #<Account:0x00007f85d10c7868 @name="Stephan", @balance=0, @transactions=[]> 
+ => #<Account:0x00000f85d10c7868 @name="Stephan", @balance=0, @transactions=[]> 
 2.6.3 :004 > bank.deposit(account, 100)
  => "You have deposited £100" 
 2.6.3 :005 > bank.deposit(account, 2300)
@@ -71,7 +99,7 @@ date || credit || debit || balance
 ```
 
 
-## Specification
+## Specification by Makers Academy
 
 ### Requirements
 
