@@ -5,4 +5,22 @@ describe Account do
     expect(Account.new("Stephan")).to be_an Account
   end
 
+  it 'is instantiated with an empty array for transactions' do
+    account = Account.new("Stephan")
+    expect(account.transactions).to eq []
+  end
+
+  it 'can make an instance of transaction every time a transaction is created, and stored somewhere I can access them' do
+    account = Account.new("Stephan")
+    account.transaction(:deposit, 100)
+    expect(account.transactions.length).to eq 1
+  end
+
+  it 'can access attributes of each transaction including amount, type and the timestamp' do
+    account = Account.new("Stephan")
+    account.transaction(:deposit, 100)
+    expect(account.transactions.length).to eq 1
+    expect(account.transactions.last.amount).to eq 100
+    expect(account.transactions.last.type).to eq :deposit
+  end
 end
