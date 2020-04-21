@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'statement'
 
 describe Statement do
@@ -12,5 +14,4 @@ describe Statement do
     statement = Statement.new(transactions)
     expect(statement.produce).to eq "date || credit || debit || balance\n"
   end
-  
 end

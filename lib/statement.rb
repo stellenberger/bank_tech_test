@@ -1,5 +1,6 @@
-class Statement
+# frozen_string_literal: true
 
+class Statement
   def initialize(transactions)
     @transactions = transactions
   end
@@ -11,12 +12,12 @@ class Statement
     else
       @transactions.each do |transaction|
         if transaction.type == :deposit
-          statement += transaction.date + " || " + transaction.amount + " || || " + transaction.balance_after_transaction + "\n"
+          statement += transaction.date + ' || ' + transaction.amount + ' || || ' + transaction.balance_after_transaction + "\n"
         elsif transaction.type == :withdraw
-          statement += transaction.date + " || || " + transaction.amount + " || " + transaction.balance_after_transaction + "\n"
+          statement += transaction.date + ' || || ' + transaction.amount + ' || ' + transaction.balance_after_transaction + "\n"
         end
       end
-    puts statement
+      puts statement
     end
   end
 end

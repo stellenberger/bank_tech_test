@@ -3,6 +3,8 @@
     "coverage": {
       "/Users/student/Projects/bank_tech_test/spec/account_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -48,7 +50,6 @@
           1,
           1,
           2,
-          null,
           null,
           null,
           null,
@@ -67,10 +68,11 @@
       },
       "/Users/student/Projects/bank_tech_test/lib/account.rb": {
         "lines": [
-          1,
-          1,
-          1,
           null,
+          null,
+          1,
+          1,
+          1,
           1,
           null,
           1,
@@ -153,8 +155,9 @@
       },
       "/Users/student/Projects/bank_tech_test/lib/transaction.rb": {
         "lines": [
-          1,
           null,
+          null,
+          1,
           1,
           null,
           1,
@@ -169,6 +172,8 @@
       },
       "/Users/student/Projects/bank_tech_test/spec/bank_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
@@ -221,10 +226,11 @@
       },
       "/Users/student/Projects/bank_tech_test/lib/bank.rb": {
         "lines": [
-          1,
+          null,
           null,
           1,
           null,
+          1,
           1,
           null,
           1,
@@ -253,6 +259,8 @@
       },
       "/Users/student/Projects/bank_tech_test/spec/features/feature_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
@@ -268,7 +276,6 @@
           null,
           1,
           1,
-          null,
           null,
           null,
           null,
@@ -311,6 +318,8 @@
       },
       "/Users/student/Projects/bank_tech_test/spec/statement_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -324,13 +333,14 @@
           1,
           1,
           1,
-          null,
           null,
           null
         ]
       },
       "/Users/student/Projects/bank_tech_test/spec/transaction_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -365,6 +375,6 @@
         ]
       }
     },
-    "timestamp": 1587478802
+    "timestamp": 1587484299
   }
 }

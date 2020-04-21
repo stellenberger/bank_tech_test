@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require_relative 'account'
 
 class Bank
-
   attr_reader :accounts
 
   def initialize
@@ -15,7 +16,7 @@ class Bank
   end
 
   def deposit(acc, amount)
-      acc.transaction(:deposit, amount)
+    acc.transaction(:deposit, amount)
   end
 
   def withdraw(acc, amount)

@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require_relative 'statement'
 require_relative 'transaction'
 class Account
-
   attr_reader :transactions
 
   STARTING_BALANCE = 0
@@ -22,11 +23,11 @@ class Account
       save_transaction(:withdraw, amount)
       confirmation(:withdraw, amount)
     else
-      raise "I dont recognise that action"
+      raise 'I dont recognise that action'
     end
   end
 
-  def print_statement 
+  def print_statement
     statement = Statement.new(@transactions)
     statement.produce
   end
