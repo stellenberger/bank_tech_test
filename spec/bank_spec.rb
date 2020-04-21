@@ -36,7 +36,7 @@ describe Bank do
     @bank.deposit(@account, 1000)
     allow(@bank.accounts.last.transactions.last).to receive(:date).and_return("14/01/2012") 
     expect(@bank.accounts.last.transactions.last.date).to eq "14/01/2012"
-    expect(@bank.request_statement(@account)).to eq "date || credit || debit || balance\n14/01/2012 || 1000.00 || || 1000.00"
+    expect(@bank.request_statement(@account)).to eq "date || credit || debit || balance\n14/01/2012 || 1000.00 || || 1000.00\n"
   end
   
 end

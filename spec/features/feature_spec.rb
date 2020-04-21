@@ -35,12 +35,20 @@ describe 'User Stories,' do
   # So I can check how much money I have
   # I would like to request my current bank statement
   it 'can request a bank statement' do
-    
+    @bank.deposit(@account, 1000)
+    allow(@bank.accounts.last.transactions.last).to receive(:date).and_return("14/01/2012") 
+    expect(@bank.request_statement(@account)).to eq "date || credit || debit || balance\n14/01/2012 || 1000.00 || || 1000.00\n"  
   end
-
   # As a hard working citizen
   # So I can work out my monthly spendings
   # I would like my bank statement to include the date of each transaction
-
-
+  it 'can request a bank statement and see the date of each transaction' do
+    @bank.deposit(@account, 100)
+    allow(@bank.accounts.last.transactions.last).to receive(:date).and_return("14/01/2012") 
+    @bank.deposit(@account, 2000)
+    allow(@bank.accounts.last.transactions.last).to receive(:date).and_return("15/01/2012") 
+    @bank.withdraw(@account, 1000)
+    allow(@bank.accounts.last.transactions.last).to receive(:date).and_return("17/01/2012") 
+    expect(@bank.request_statement(@account)).to eq "date || credit || debit || balance\n14/01/2012 || 100.00 || || 100.00\n15/01/2012 || 2000.00 || || 2100.00\n17/01/2012 || || 1000.00 || 1100.00\n" 
+  end
 end

@@ -11,9 +11,9 @@ class Statement
       statement = "date || credit || debit || balance\n"
       @transactions.each do |transaction|
         if transaction.type == :deposit
-          statement += transaction.date + " || " + transaction.amount + " || || " + transaction.balance_after_transaction
+          statement += transaction.date + " || " + transaction.amount + " || || " + transaction.balance_after_transaction + "\n"
         elsif transaction.type == :withdraw
-          statement += transaction.date + " || || " + transaction.amount + " || " + transaction.balance_after_transaction
+          statement += transaction.date + " || || " + transaction.amount + " || " + transaction.balance_after_transaction + "\n"
         end
       end
     statement
