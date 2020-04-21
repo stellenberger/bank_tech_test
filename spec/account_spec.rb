@@ -22,6 +22,7 @@ describe Account do
     expect(account.transactions.length).to eq 1
     expect(account.transactions.last.amount).to eq 100
     expect(account.transactions.last.type).to eq :deposit
+    expect(account.transactions.last.timestamp).to be_a Time
   end
 
   it 'can access attributes of each transaction including amount, type and the timestamp. Testing withdraw' do
@@ -30,5 +31,6 @@ describe Account do
     expect(account.transactions.length).to eq 1
     expect(account.transactions.last.amount).to eq 100
     expect(account.transactions.last.type).to eq :withdraw
+    expect(account.transactions.last.timestamp).to be_a Time
   end
 end

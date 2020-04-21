@@ -11,6 +11,7 @@ class Bank
   def create_account(name)
     account = Account.new(name)
     @accounts << account
+    account
   end
 
   def deposit(acc, amount)
