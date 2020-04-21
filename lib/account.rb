@@ -1,4 +1,5 @@
 require_relative 'statement'
+require_relative 'transaction'
 class Account
 
   attr_reader :transactions

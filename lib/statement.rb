@@ -16,7 +16,7 @@ class Statement
           statement += transaction.date + " || || " + transaction.amount + " || " + transaction.balance_after_transaction + "\n"
         end
       end
-    statement
+    puts statement
     end
   end
 end

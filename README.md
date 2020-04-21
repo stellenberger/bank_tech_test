@@ -34,6 +34,42 @@ So I can work out my monthly spendings
 I would like my bank statement to include the date of each transaction
 ```
 
+## Example Usage
+- Run bundle install after cloning this repo
+
+```
+$ bundle install
+```
+
+- Start the interactive ruby terminal
+
+```
+$ irb
+```
+
+- The following is an example to how the application can be run. 
+
+```
+2.6.3 :001 > require './lib/bank.rb'
+ => true 
+2.6.3 :002 > bank = Bank.new
+ => #<Bank:0x00007f85d10df670 @accounts=[]> 
+2.6.3 :003 > account = bank.create_account("Stephan")
+ => #<Account:0x00007f85d10c7868 @name="Stephan", @balance=0, @transactions=[]> 
+2.6.3 :004 > bank.deposit(account, 100)
+ => "You have deposited £100" 
+2.6.3 :005 > bank.deposit(account, 2300)
+ => "You have deposited £2300" 
+2.6.3 :006 > bank.withdraw(account, 860)
+ => "You have withdrawn £860" 
+2.6.3 :007 > bank.request_statement(account)
+date || credit || debit || balance
+21-04-20 || 100.00 || || 100.00
+21-04-20 || 2300.00 || || 2400.00
+21-04-20 || || 860.00 || 1540.00
+ => nil 
+```
+
 
 ## Specification
 
