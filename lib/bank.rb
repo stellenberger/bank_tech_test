@@ -21,4 +21,8 @@ class Bank
   def withdraw(acc, amount)
     acc.transaction(:withdraw, amount)
   end
+
+  def request_statement(acc)
+    acc.print_statement
+  end
 end

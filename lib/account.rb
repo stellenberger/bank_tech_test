@@ -1,3 +1,4 @@
+require_relative 'statement'
 class Account
 
   attr_reader :transactions
@@ -20,11 +21,16 @@ class Account
     end
   end
 
+  def print_statement 
+    statement = Statement.new(@transactions)
+    statement.produce
+  end
+
   private
 
   def deposit(amount)
-    @transactions << Transaction.new(:deposit, amount)
     @balance += amount
+    @transactions << Transaction.new(:deposit, amount, @balance)
     "You have deposited £#{amount}"
   end
 
@@ -32,8 +38,8 @@ class Account
     if @balance < amount
       raise "You don't have enough credit in your account to make this transaction"
     end
-    @transactions << Transaction.new(:withdraw, amount)
     @balance -= amount
+    @transactions << Transaction.new(:withdraw, amount, @balance)
     "You have withdrawn £#{amount}"
   end
 end

@@ -25,7 +25,7 @@ describe Account do
     account = Account.new("Stephan")
     account.transaction(:deposit, 100)
     expect(account.transactions.length).to eq 1
-    expect(account.transactions.last.amount).to eq 100
+    expect(account.transactions.last.amount).to eq '100.00'
     expect(account.transactions.last.type).to eq :deposit
     expect(account.transactions.last.timestamp).to be_a Time
   end
@@ -35,7 +35,7 @@ describe Account do
     account.transaction(:deposit, 100)
     account.transaction(:withdraw, 100)
     expect(account.transactions.length).to eq 2
-    expect(account.transactions.last.amount).to eq 100
+    expect(account.transactions.last.amount).to eq '100.00'
     expect(account.transactions.last.type).to eq :withdraw
     expect(account.transactions.last.timestamp).to be_a Time
   end
