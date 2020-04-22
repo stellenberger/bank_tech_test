@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 class Statement
+DEFAULT_BALANCE = 0
   def initialize(transactions)
     @transactions = transactions
+    @balance = DEFAULT_BALANCE
   end
 
   def produce

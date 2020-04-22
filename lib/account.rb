@@ -15,11 +15,10 @@ class Account
 
   def transaction(type, amount)
     if type == :deposit
-      deposit(amount)
       save_transaction(:deposit, amount)
       confirmation(:deposit, amount)
     elsif type == :withdraw
-      withdraw(amount)
+      check_balance(amount)
       save_transaction(:withdraw, amount)
       confirmation(:withdraw, amount)
     else
@@ -33,25 +32,31 @@ class Account
   end
 
   private
-
-  def deposit(amount)
-    @balance += amount
-  end
-
-  def withdraw(amount)
-    check_balance(amount)
-    @balance -= amount
-  end
-
   def check_balance(amount)
-    raise "You don't have enough credit in your account to make this transaction" if @balance < amount
+    error_message if insufficient_funds(amount) 
   end
 
   def save_transaction(type, amount)
-    @transactions << Transaction.new(type, amount, @balance)
+    @transactions << Transaction.new(type, amount, balance)
   end
 
+  def balance
+    if @transactions.empty?
+      0
+    else
+      @transactions.last.balance_after_transaction
+    end
+  end
+  
   def confirmation(type, amount)
     type == :deposit ? "You have deposited £#{amount}" : "You have withdrawn £#{amount}"
+  end
+
+  def error_message
+    raise "You don't have enough credit in your account to make this transaction"
+  end
+
+  def insufficient_funds(amount)
+    @transactions.empty? || @transactions.last.balance_after_transaction.to_i < amount
   end
 end
