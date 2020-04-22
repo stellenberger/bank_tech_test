@@ -5,12 +5,13 @@ require_relative 'account'
 class Bank
   attr_reader :accounts
 
-  def initialize
+  def initialize(account_class = Account)
+    @account_class = account_class
     @accounts = []
   end
 
   def create_account(name)
-    account = Account.new(name)
+    account = @account_class.new(name)
     @accounts << account
     account
   end
