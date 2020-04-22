@@ -10,7 +10,7 @@ class Statement
     if @transactions.empty?
       statement
     else
-      @transactions.each do |transaction|
+      @transactions.reverse.each do |transaction|
         if transaction.type == :deposit
           statement += transaction.date + ' || ' + transaction.amount + ' || || ' + transaction.balance_after_transaction + "\n"
         elsif transaction.type == :withdraw
