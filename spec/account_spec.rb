@@ -55,7 +55,7 @@ describe Account do
       allow(account.transactions.last).to receive(:date).and_return('14/01/2012')
       account.transaction(:withdraw, 100)
       allow(account.transactions.last).to receive(:date).and_return('15/01/2012')
-      expect { account.print_statement }.to output("date || credit || debit || balance\n14/01/2012 || 100.00 || || 100.00\n15/01/2012 || || 100.00 || 0.00\n").to_stdout
+      expect { account.print_statement }.to output("date || credit || debit || balance\n15/01/2012 || || 100.00 || 0.00\n14/01/2012 || 100.00 || || 100.00\n").to_stdout
     end
   end
 end

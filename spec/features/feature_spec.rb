@@ -50,6 +50,6 @@ describe 'User Stories,' do
     allow(@bank.accounts.last.transactions.last).to receive(:date).and_return('15/01/2012')
     @bank.withdraw(@account, 1000)
     allow(@bank.accounts.last.transactions.last).to receive(:date).and_return('17/01/2012')
-    expect { @bank.request_statement(@account) }.to output("date || credit || debit || balance\n14/01/2012 || 100.00 || || 100.00\n15/01/2012 || 2000.00 || || 2100.00\n17/01/2012 || || 1000.00 || 1100.00\n").to_stdout
+    expect { @bank.request_statement(@account) }.to output("date || credit || debit || balance\n17/01/2012 || || 1000.00 || 1100.00\n15/01/2012 || 2000.00 || || 2100.00\n14/01/2012 || 100.00 || || 100.00\n").to_stdout
   end
 end
